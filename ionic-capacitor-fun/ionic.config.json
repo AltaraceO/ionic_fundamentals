@@ -1,0 +1,7 @@
+{
+  "name": "ionic-capacitor-fun",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
