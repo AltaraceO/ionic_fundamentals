@@ -5,17 +5,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>New Expense</ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Expense Type</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Expense Amount</ion-label>
-        <ion-input type="number"></ion-input>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <!-- grid enables sizing for different screens -->
+      <!-- offsetting by half will center it on the page -->
+      <!-- md - medium scrreens and higher -->
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>New Expense</ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="floating">Expense Type</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Expense Amount</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
