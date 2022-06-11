@@ -11,13 +11,15 @@ export class RecipesPage implements OnInit {
     {
       id: 'r1',
       title: 'schnitzel',
-      image: 'https://unsplash.com/photos/flFd8L7_B3g',
+      image:
+        'https://upload.wikimedia.org/wikipedia/commons/c/c6/Pasta_Pasta.jpg',
       ingredients: ['french fries', 'chicken', 'bread'],
     },
     {
       id: 'r2',
       title: 'pasta',
-      image: 'url',
+      image:
+        'https://upload.wikimedia.org/wikipedia/commons/c/cc/Pasta_with_seafood_and_miuced_pork_with_mushroom_and_tomato_sauce_in_home.jpg',
       ingredients: ['french pasta', 'tomato', 'basil'],
     },
   ];
