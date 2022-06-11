@@ -7,11 +7,15 @@ import { RecipesService } from './recipes.service';
   templateUrl: './recipes.page.html',
   styleUrls: ['./recipes.page.scss'],
 })
-export class RecipesPage implements OnInit {
+export class RecipesPage {
   recipes: Recipe[];
-  constructor(private recipeService: RecipesService) {}
 
-  ngOnInit() {
+  constructor(private recipeService: RecipesService) {
+    // console.log('trigger');
+    // this.recipes = this.recipeService.getAllRecipes();
+  }
+  //instead of ngOnInit... this will trigger the re-render - if you navigate with Router ngOnInit doesnt work
+  ionViewWillEnter() {
     this.recipes = this.recipeService.getAllRecipes();
   }
 }
