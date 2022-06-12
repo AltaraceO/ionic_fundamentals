@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { Recipe } from '../recipe.model';
 import { RecipesService } from '../recipes.service';
 
@@ -14,7 +15,8 @@ export class DetailsPage implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private recipesService: RecipesService,
-    private router: Router
+    private router: Router,
+    private alertCtrl: AlertController
   ) {}
 
   ngOnInit() {
@@ -29,7 +31,24 @@ export class DetailsPage implements OnInit {
   }
 
   onDeleteRecipe() {
-    this.recipesService.deleteRecipe(this.gottenRecipe.id);
-    this.router.navigate(['/recipes']);
+    //this creates a promise so need to use a present( ) at the end to make it run ... if clicked ok than the handler runs the rest
+    this.alertCtrl
+      .create({
+        header: 'Are you ok?',
+        message: 'Do you really wanna delete this?',
+        buttons: [
+          { text: 'Oh, God no', role: 'cancel' },
+          {
+            text: 'Ahh, yeah?',
+            handler: () => {
+              this.recipesService.deleteRecipe(this.gottenRecipe.id);
+              this.router.navigate(['/recipes']);
+            },
+          },
+        ],
+      })
+      .then((alertElement) => {
+        alertElement.present();
+      });
   }
 }
